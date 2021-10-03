@@ -107,7 +107,8 @@ p {
     padding-bottom: 40px;
 }
 
-// Preloader
+// preloader
+
 .preloader {
     position: fixed;
     top: 0;
@@ -115,33 +116,60 @@ p {
     z-index: 9999;
     width: 100%;
     height: 100%;
-    background: var(--color-theme);
-
+    background-color: var(--color-theme);
+    overflow: hidden;
     .preloader-inner {
         position: absolute;
         top: 50%;
         left: 50%;
+        -webkit-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
-    }
-    .preloader-icon {
-        width: 92px;
-        height: 92px;
-        display: inline-block;
-        padding: 0px;
-
-        span {
-            position: absolute;
+        .preloader-icon {
+            width: 72px;
+            height: 72px;
             display: inline-block;
-            width: 92px;
-            height: 92px;
-            border-radius: 100%;
-            background: var(--color-white);
-            animation: preloader 1.6s linear infinite;
-
-            &:last-child {
-                animation-delay: -0.8s;
+            padding: 0px;
+            span {
+                position: absolute;
+                display: inline-block;
+                width: 72px;
+                height: 72px;
+                border-radius: 100%;
+                background: var(--color-white);
+                -webkit-animation: preloader-fx 1.6s linear infinite;
+                animation: preloader-fx 1.6s linear infinite;
+                &:last-child {
+                    animation-delay: -0.8s;
+                    -webkit-animation-delay: -0.8s;
+                }
             }
         }
+    }
+}
+
+@keyframes preloader-fx {
+    0% {
+        -webkit-transform: scale(0, 0);
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+
+    100% {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes preloader-fx {
+    0% {
+        -webkit-transform: scale(0, 0);
+        opacity: 0.5;
+    }
+
+    100% {
+        -webkit-transform: scale(1, 1);
+        opacity: 0;
     }
 }
 
@@ -443,30 +471,5 @@ button.str-details-btn {
         opacity: 1;
         -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
-    }
-}
-@keyframes preloader {
-    0% {
-        -webkit-transform: scale(0, 0);
-        transform: scale(0, 0);
-        opacity: 0.5;
-    }
-
-    100% {
-        -webkit-transform: scale(1, 1);
-        transform: scale(1, 1);
-        opacity: 0;
-    }
-}
-
-@-webkit-keyframes preloader {
-    0% {
-        -webkit-transform: scale(0, 0);
-        opacity: 0.5;
-    }
-
-    100% {
-        -webkit-transform: scale(1, 1);
-        opacity: 0;
     }
 }

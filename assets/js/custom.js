@@ -2,15 +2,6 @@
     "use strict";
 
     var matromatch = {
-        
-        /* ============================================================ */
-        /* PRELOADER
-        /* ============================================================ */
-        preloader: function(){
-            $(window).on('load', function() {
-                $(".preloader").fadeOut();     
-            });
-        },
 
         /* ============================================================ */
         /* Random
@@ -202,7 +193,7 @@
 
 
         initializ: function() {
-			matromatch.preloader();
+			// matromatch.preloader();
 			matromatch.mobile_menu();
 			matromatch.commonActivation();
 			matromatch.scroll_to_top();
@@ -216,6 +207,13 @@
     $(function() {
 		matromatch.initializ();
 	});
+
+    /* ============================================================ */
+    /* PRELOADER
+    /* ============================================================ */
+    $(window).on('load', function() {
+        $(".preloader").fadeOut(1000);     
+    });
 
 
 })(jQuery);
